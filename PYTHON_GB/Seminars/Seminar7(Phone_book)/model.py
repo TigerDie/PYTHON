@@ -1,10 +1,14 @@
 # словарь как база данных 
-def read_db(path: str) -> dict:
+def read_db(path: str) -> list:
     db_list = []
-    with open(path, 'r', encoding='UTF-8') as file:
+    with open(path, 'r', encoding = 'UTF-8') as file:
         my_list = file.readlines()
         for line in my_list:
             id_dict = dict()
             line = line.strip()
-            print(list)
-    
+            id_dict['lastname'] = line[0]
+            id_dict['firstname'] = line[1]
+            id_dict['phone'] = line[2]
+            id_dict['comment'] = line[3]
+            db_list.append(id_dict)
+    return db_list
